@@ -15,4 +15,4 @@ SELECT name FROM singer
 WHERE NOT name LIKE '%% %%';
 
 SELECT name FROM track
-WHERE name LIKE '%me%';
+WHERE name LIKE '%my%';

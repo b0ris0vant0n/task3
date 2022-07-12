@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS genre(
 id SERIAL PRIMARY KEY,
-name VARCHAR(20) NOT NULL
+name VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS singer(
@@ -16,7 +16,7 @@ genre_id int REFERENCES genre(id)
 CREATE TABLE IF NOT EXISTS album(
 id SERIAL PRIMARY KEY,
 name VARCHAR(60) NOT NULL,
-release_year int NOT NULL
+release_year int NOT NULL CHECK (release_year > 1900)
 );
 
 CREATE TABLE IF NOT EXISTS album_singer(
@@ -34,7 +34,7 @@ album_id int REFERENCES album(id)
 
 CREATE TABLE IF NOT EXISTS collections(
 id SERIAL PRIMARY KEY,
-release_year int NOT NULL,
+release_year int NOT NULL CHECK (release_year > 1900),
 name varchar(60) NOT NULL
 );
 
